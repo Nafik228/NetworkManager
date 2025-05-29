@@ -6,4 +6,4 @@ iptables -S &&
 iptables -t nat -S && 
 
 systemctl enable --now iptables && 
-iptables-save > /etc/sysconfig/iptables &&
+iptables-save > /etc/sysconfig/iptables 
