@@ -26,7 +26,7 @@ poweroff
 
 9. /etc/net/sysctl.conf forwarding = 1 и sysctl net.ipv4.ip_forward = 1 на ISP, HQ,-R, BR-R, systemctl restart network
 
-10. ISP: iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE && systemctl enable iptabes && iptables-save >/etc/sysconfig/iptables
+10. ISP: iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE && systemctl enable --now iptabes && iptables-save >/etc/sysconfig/iptables, reboot
 
 11. nano /etc/systemd/resolved.conf ставим днс на HQ-R и BR-R, systemctl enable --now systemd-resolved.service 
 
