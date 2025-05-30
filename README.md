@@ -40,6 +40,12 @@ poweroff
 
 16. backup script
 
-17. ssh 2222
+17. ssh 2222:
+HQ-R:
+iptables -t nat -A PREROUTING -p tcp --dport 2222 -i enp0s3 -j DNAT --to-destination 192.168.100.5:22
 
-18. ограниченный ssh
+18. Все кроме CLI по ssh: 
+
+на HQ-R:
+iptables -A FORWARD -p tcp --dport 22 -i enp0s3 -s 192.168.111.2/32 -j DROP
+iptables-save >/etc/sysconfig/iptables
