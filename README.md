@@ -47,5 +47,5 @@ iptables -t nat -A PREROUTING -p tcp --dport 2222 -i enp0s3 -j DNAT --to-destina
 18. Все кроме CLI по ssh: 
 
 на HQ-R:
-iptables -A FORWARD -p tcp --dport 22 -i enp0s3 -s 192.168.111.2/32 -j DROP
+iptables -A FORWARD -p tcp --dport 22 -i enp0s3 -s 192.168.111.2/32 -j DROP && 
 iptables-save >/etc/sysconfig/iptables
