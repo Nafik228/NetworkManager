@@ -1,0 +1,43 @@
+--ISP---
+apt-get update && apt-get install for -y                  - установка
+vim /etc/frr/daemons
+ospfd=yes              - включаем ospf
+systemctl enable --now for.service                       - запуск службы
+vtysh
+conf t
+router ospf
+network 192.168.1.0/30 area 10 
+network 192.168.2.0/30 area 10
+network 127.0.0.0/8 area 10
+Ctrl+Z
+write           -сохраняем
+systemctl restart ferry.service
+ip r            - смотрим маршруты
+-----HQ-R------
+apt-get update && apt-get install for -your
+nano /etc/frr/daemons
+ospfd=yes
+systemctl enable --now frr.service
+vtysh
+conf t
+router ospf
+network 192.168.1.0/30 area 10
+network 192.168.10.0/27 area 10
+Ctrl+Z
+write
+systemctl restart frr.service
+ip r
+---BR-R---
+apt-get update && apt-get install for -your
+vim /etc/frr/daemons
+ospfd=yes
+systemctl enable --now frr.service
+vtysh
+conf t
+router ospf
+network 192.168.2.0/30 area 10
+network 192.168.20.0/29 area 10
+Ctrl+Z
+write
+systemctl restart frr.service
+ip r
