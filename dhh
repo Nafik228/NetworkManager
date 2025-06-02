@@ -1,0 +1,29 @@
+=========DHCP===========
+-
+-HQ-R--
+apt-get install dhcp-server
+nano /etc/sysconfig/dhcpd
+==============================
+DHCPDARGS=enp0s8
+=============================
+cp /etc/dhcp/dhcpd.conf.sample /etc/dhcp/dhcpd.conf
+
+nano /etc/dhcp/dhcpd.conf
+ -------------------------dhcpd.conf---------------
+  =========================================================
+        ddns-update-style none;
+              subnet 192.168.10.0 netmask 255.255.255.224 {
+                      option routers                192.168.10.1;
+                      option subnet-mask            255.255.255.224;
+                      option domain-name-servers    8.8.8.8;
+
+                      range dynamic-bootp 192.168.10.10 192.168.10.30;
+                      default-lease-time 21600;
+                      max-lease-time 43200;
+}
+host HQ-SRV {
+hardware ethernet XX: XX: XX: XX: XX: XX; <-------MAC адрес HQ-SRV
+fixed-address 192.168.10.4;
+dhcpd -t
+systemctl enable --now dhcpd
+systemctl status dhcpd
