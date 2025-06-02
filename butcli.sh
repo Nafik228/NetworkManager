@@ -1,0 +1,5 @@
+#!/bin/bash
+iptables -A FORWARD -p tcp --dport 22 -i enp0s3 -s 192.168.111.2/32 -j DROP
+systemctl enable --now iptables 
+iptables-save >/etc/sysconfig/iptables
+reboot
