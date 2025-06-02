@@ -1,0 +1,19 @@
+HQ-R and BR-R
+------------------------------
+cd /opt/
+ls
+touch ^C
+nano /opt/backup.sh
+===================================================
+#?/bin/bash
+tar -czf /opt/$(hostname -s)-$(date +"%F:%T").tgz /etc
+===================================================
+cd
+cd /opt/backup.sh
+cd /opt/
+ls
+chmod +x backup.sh
+chmod +x /opt/backup.sh
+ls
+./backup.sh
+cat backup.sh
