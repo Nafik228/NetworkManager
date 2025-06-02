@@ -1,1 +1,7 @@
-
+===users=============
+----CLIP, HQ-SRV, HQ-R---
+useradd admin && passwd admin
+- - - BR-SRV, BR-R----
+useradd branch admin && passwd branch_admin
+---HQ-R, BR-R, BR-SRV----
+useradd network_admin && passwd network_admin
