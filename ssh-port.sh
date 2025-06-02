@@ -4,4 +4,4 @@ iptables -A FORWARD -p tcp --dport 22 -d 192.168.100.5 -m conntrack ! --ctstate 
 iptables -S && \
 iptables -t nat -S && \
 systemctl enable --now iptables && \
-iptables-save > /etc/sysconfig/iptables 
+iptables-save >/etc/sysconfig/iptables 
