@@ -1,0 +1,8 @@
+====порт 2222=====
+- -HQ-R--
+iptables -t nat -A PREROUTING -p tcp --dport 2222 -i enp0s3 -j DNAT --to-destination 192.168.10.4:22
+systemctl enable --now iptables 
+iptables-save >/etc/sysconfig/iptables 
+--ISP--
+ssh admin@192.168.10.4 -p 22
+ssh admin0192.168.10.4 -p 2222
